@@ -4,6 +4,13 @@ on:
     types:
       - opened
   workflow_dispatch:
+  push:
+    branches:
+      - main # main
+      - 'dev-*' # dev-new dev-this-is-new
+      - 'feat/**' # feat/new feat/new/button
+    paths-ignore:
+      - ".github/workflows/*" # if you changed other files, and one file in this dir, the events will still not be triggered
 jobs:
   deploy:
     runs-on: ubuntu-latest
